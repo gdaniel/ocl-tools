@@ -10,9 +10,9 @@ main() {
 	# Do not print the build log, it is already available in the Xatkit build
     e "Building Unpublished Dependencies"
     cd /tmp
-    git clone https://github.com/unveiling/unveiling-commons.git > /dev/null
+    git clone https://github.com/unveiling/unveiling-commons.git
     cd unveiling-commons
-    mvn clean install -N -DskipTests > /dev/null
+    mvn clean install -N -DskipTests
 }
 
 main
