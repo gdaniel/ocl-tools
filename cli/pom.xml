@@ -45,6 +45,8 @@
                         <mainClass>fr.gdaniel.App</mainClass>
                       </manifest>
                     </archive>
+                    <finalName>ocl-cli</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
 
                 <executions>
