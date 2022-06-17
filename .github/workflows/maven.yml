@@ -20,7 +20,7 @@ jobs:
       with:
         java-version: 17
     - name: Build Unpublished Dependencies
-      run: ./.github/scripts/build-dependencies.sh
+      run: $GITHUB_WORKSPACE/.github/scripts/build-dependencies.sh
     - name: Build Eclipse Plugin
       run: mvn -B clean install --file ./eclipse/pom.xml
     - name: Build Maven Artifacts
