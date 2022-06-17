@@ -12,7 +12,7 @@ main() {
     cd /tmp
     git clone https://github.com/unveiling/unveiling-commons.git
     cd unveiling-commons
-    mvn clean install -N -DskipTests
+    mvn clean install -DskipTests
 }
 
 main
