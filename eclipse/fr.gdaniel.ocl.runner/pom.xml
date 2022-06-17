@@ -13,7 +13,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>fr.gdaniel</groupId>
+            <groupId>fr.gdaniel.ocl</groupId>
             <artifactId>fr.gdaniel.ocl.runner.p2</artifactId>
             <version>${project.version}</version>
             <classifier>repackaged</classifier>
