@@ -15,6 +15,7 @@
     <packaging>eclipse-plugin</packaging>
 
     <properties>
+        <tycho.version>2.7.3</tycho.version>
         <ocl.version>6.17.1</ocl.version>
         <emf.version>2.29</emf.version>
         <eclipse.platform.version>2022-03</eclipse.platform.version>
