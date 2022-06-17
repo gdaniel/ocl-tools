@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+      
+  <modelVersion>4.0.0</modelVersion>
+      
+  <parent>
+    <artifactId>unveiling-parent</artifactId>
+    <groupId>org.atlanmod.unveiling</groupId>
+    <version>1.0.1</version>
+    <relativePath/>
+  </parent>
+      
+  <groupId>fr.gdaniel.ocl</groupId>      
+  <artifactId>ocl-eclipse-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.fork>true</maven.compiler.fork>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+  </properties>
+      
+  <modules>
+    <module>fr.gdaniel.ocl.runner</module>
+    <module>fr.gdaniel.ocl.runner.p2</module>      
+  </modules>
+      
+
+</project>
