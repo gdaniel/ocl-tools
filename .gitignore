@@ -24,3 +24,10 @@ hs_err_pid*
 
 # maven build directories
 **/target/**
+
+# Eclipse build directories
+**/bin/**
+
+# IntelliJ files
+**.idea
+**.iml
