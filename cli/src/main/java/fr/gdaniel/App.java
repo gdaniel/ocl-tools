@@ -8,6 +8,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
 
 import java.io.File;
 
@@ -61,6 +63,11 @@ public class App {
             throw new RuntimeException();
         }
         OCLRunner oclRunner = new OCLRunner();
-        oclRunner.checkConstraints(metamodelFile, modelFile, constraintsFile);
+
+        Diagnostic diagnostics = oclRunner.checkConstraints(metamodelFile, modelFile, constraintsFile);
+        if(diagnostics.getSeverity() != Diagnostic.OK) {
+            String formattedDiagnostics = PivotUtil.formatDiagnostics(diagnostics, "\n");
+            System.out.println("Validation: " + formattedDiagnostics);
+        }
     }
 }

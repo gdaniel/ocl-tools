@@ -22,7 +22,7 @@ public class OCLRunner {
 		
 	}
 	
-	public void checkConstraints(File metamodelFile, File modelFile, File constraintFile) {
+	public Diagnostic checkConstraints(File metamodelFile, File modelFile, File constraintFile) {
 		ResourceSet rSet = EMFUtil.createResourceSet();
 		Resource metamodelResource = EMFUtil.loadResource(metamodelFile, rSet);
 		EMFUtil.registerMetamodelPackages(metamodelResource);
@@ -40,10 +40,7 @@ public class OCLRunner {
 		
 		MyDiagnostician diagnostician = new MyDiagnostician();
 		Diagnostic diagnostics = diagnostician.validate(modelResource);
-		if(diagnostics.getSeverity() != Diagnostic.OK) {
-			String formattedDiagnostics = PivotUtil.formatDiagnostics(diagnostics, "\n");
-			System.out.println("Validation: " + formattedDiagnostics);
-		}
+		return diagnostics;
 	}
 
 }
