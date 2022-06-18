@@ -68,6 +68,7 @@ public class App {
         if(diagnostics.getSeverity() != Diagnostic.OK) {
             String formattedDiagnostics = PivotUtil.formatDiagnostics(diagnostics, "\n");
             System.out.println("Validation: " + formattedDiagnostics);
+            System.exit(1);
         }
     }
 }
