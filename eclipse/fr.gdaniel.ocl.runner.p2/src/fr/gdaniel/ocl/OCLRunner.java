@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.ocl.pivot.utilities.OCL;
-import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.validation.ComposedEValidator;
 import org.eclipse.ocl.xtext.completeocl.CompleteOCLStandaloneSetup;
 import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
@@ -35,7 +34,7 @@ public class OCLRunner {
 		
 		for(EPackage ePackage : EMFUtil.getMetamodelPackages(metamodelResource)) {
 			ComposedEValidator newEValidator = ComposedEValidator.install(ePackage);
-			newEValidator.addChild(new CompleteOCLEObjectValidator(ePackage, constraintUri, ocl.getEnvironmentFactory()));
+			newEValidator.addChild(new CompleteOCLEObjectValidator(ePackage, constraintUri));
 		}
 		
 		MyDiagnostician diagnostician = new MyDiagnostician();
