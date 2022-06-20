@@ -28,10 +28,15 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         Options options = new Options();
+        /*
+         * We don't use Option#setRequired(true) here, because we want users to be able to run ocl-cli -h. If we
+         * require the other arguments the parser will throw an exception, which is not very user-friendly.
+         */
         options.addOption(METAMODEL_OPTION);
         options.addOption(MODEL_OPTION);
         options.addOption(CONSTRAINTS_OPTION);
         options.addOption(HELP_OPTION);
+
         HelpFormatter formatter = new HelpFormatter();
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd;
