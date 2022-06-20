@@ -5,6 +5,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.MissingArgumentException;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
@@ -19,14 +20,14 @@ import java.io.File;
 public class App {
 
     public static final Option METAMODEL_OPTION = new Option("M", "metamodel", true, "Location of the metamodel "
-            + "file");
+            + "file (required)");
 
-    public static final Option MODEL_OPTION = new Option("m", "model", true, "Location of the model file");
+    public static final Option MODEL_OPTION = new Option("m", "model", true, "Location of the model file (required)");
 
     public static final Option CONSTRAINTS_OPTION = new Option("c", "constraints", true, "Location of the constraints"
-            + " file");
+            + " file (required)");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Options options = new Options();
         options.addOption(METAMODEL_OPTION);
         options.addOption(MODEL_OPTION);
@@ -47,19 +48,19 @@ public class App {
             metamodelFile = new File(cmd.getOptionValue(METAMODEL_OPTION));
         } else {
             formatter.printHelp("ocl runner", options);
-            throw new RuntimeException();
+            throw new MissingArgumentException(METAMODEL_OPTION);
         }
         if (cmd.hasOption(MODEL_OPTION)) {
             modelFile = new File(cmd.getOptionValue(MODEL_OPTION));
         } else {
             formatter.printHelp("ocl runner", options);
-            throw new RuntimeException();
+            throw new MissingArgumentException(MODEL_OPTION);
         }
         if (cmd.hasOption(CONSTRAINTS_OPTION)) {
             constraintsFile = new File(cmd.getOptionValue(CONSTRAINTS_OPTION));
         } else {
             formatter.printHelp("ocl runner", options);
-            throw new RuntimeException();
+            throw new MissingArgumentException(CONSTRAINTS_OPTION);
         }
         OCLRunner oclRunner = new OCLRunner();
 
