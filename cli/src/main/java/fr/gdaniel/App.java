@@ -16,6 +16,8 @@ import java.io.File;
 
 public class App {
 
+    private static final String CMD_LINE_SYNTAX = "ocl-cli";
+
     public static final Option METAMODEL_OPTION = new Option("M", "metamodel", true, "Location of the metamodel "
             + "file (required)");
 
@@ -43,11 +45,11 @@ public class App {
         try {
             cmd = parser.parse(options, args);
         } catch (ParseException e) {
-            formatter.printHelp("ocl runner", options);
+            formatter.printHelp(CMD_LINE_SYNTAX, options);
             throw e;
         }
         if(cmd.hasOption(HELP_OPTION)) {
-            formatter.printHelp("ocl runner", options);
+            formatter.printHelp(CMD_LINE_SYNTAX, options);
             System.exit(0);
         }
 
@@ -57,19 +59,19 @@ public class App {
         if (cmd.hasOption(METAMODEL_OPTION)) {
             metamodelFile = new File(cmd.getOptionValue(METAMODEL_OPTION));
         } else {
-            formatter.printHelp("ocl runner", options);
+            formatter.printHelp(CMD_LINE_SYNTAX, options);
             throw new MissingArgumentException(METAMODEL_OPTION);
         }
         if (cmd.hasOption(MODEL_OPTION)) {
             modelFile = new File(cmd.getOptionValue(MODEL_OPTION));
         } else {
-            formatter.printHelp("ocl runner", options);
+            formatter.printHelp(CMD_LINE_SYNTAX, options);
             throw new MissingArgumentException(MODEL_OPTION);
         }
         if (cmd.hasOption(CONSTRAINTS_OPTION)) {
             constraintsFile = new File(cmd.getOptionValue(CONSTRAINTS_OPTION));
         } else {
-            formatter.printHelp("ocl runner", options);
+            formatter.printHelp(CMD_LINE_SYNTAX, options);
             throw new MissingArgumentException(CONSTRAINTS_OPTION);
         }
         OCLRunner oclRunner = new OCLRunner();
