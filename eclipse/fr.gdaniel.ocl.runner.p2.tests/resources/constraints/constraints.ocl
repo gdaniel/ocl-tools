@@ -1,0 +1,9 @@
+import 'http://www.example.org/graph'
+
+package graph
+
+context Node
+inv nodesHasName('The \'name\' property of "graph/nodes/' + self.oclContainer().oclAsType(Graph).nodes->indexOf(self).toString() + '" is null or empty'):
+	self.name <> null and self.name.size() > 0
+
+endpackage

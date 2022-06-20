@@ -25,6 +25,7 @@
   <modules>
     <module>fr.gdaniel.ocl.runner</module>
     <module>fr.gdaniel.ocl.runner.p2</module>      
+    <module>fr.gdaniel.ocl.runner.p2.tests</module>
   </modules>
       
 
