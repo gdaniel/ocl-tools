@@ -15,7 +15,6 @@ import java.io.File;
 
 /**
  * Hello world!
- *
  */
 public class App {
 
@@ -27,7 +26,7 @@ public class App {
     public static final Option CONSTRAINTS_OPTION = new Option("c", "constraints", true, "Location of the constraints"
             + " file");
 
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
         Options options = new Options();
         options.addOption(METAMODEL_OPTION);
         options.addOption(MODEL_OPTION);
@@ -37,26 +36,26 @@ public class App {
         CommandLine cmd;
         try {
             cmd = parser.parse(options, args);
-        } catch(ParseException e) {
+        } catch (ParseException e) {
             formatter.printHelp("ocl runner", options);
             throw new RuntimeException();
         }
         File metamodelFile;
         File modelFile;
         File constraintsFile;
-        if(cmd.hasOption(METAMODEL_OPTION)) {
+        if (cmd.hasOption(METAMODEL_OPTION)) {
             metamodelFile = new File(cmd.getOptionValue(METAMODEL_OPTION));
         } else {
             formatter.printHelp("ocl runner", options);
             throw new RuntimeException();
         }
-        if(cmd.hasOption(MODEL_OPTION)) {
+        if (cmd.hasOption(MODEL_OPTION)) {
             modelFile = new File(cmd.getOptionValue(MODEL_OPTION));
         } else {
             formatter.printHelp("ocl runner", options);
             throw new RuntimeException();
         }
-        if(cmd.hasOption(CONSTRAINTS_OPTION)) {
+        if (cmd.hasOption(CONSTRAINTS_OPTION)) {
             constraintsFile = new File(cmd.getOptionValue(CONSTRAINTS_OPTION));
         } else {
             formatter.printHelp("ocl runner", options);
@@ -65,9 +64,13 @@ public class App {
         OCLRunner oclRunner = new OCLRunner();
 
         Diagnostic diagnostics = oclRunner.checkConstraints(metamodelFile, modelFile, constraintsFile);
-        if(diagnostics.getSeverity() != Diagnostic.OK) {
+        if(diagnostics.getSeverity() == Diagnostic.OK) {
+            System.out.println("OCL validation succeeded without errors");
+            System.exit(0);
+        } else {
             String formattedDiagnostics = PivotUtil.formatDiagnostics(diagnostics, "\n");
-            System.out.println("Validation: " + formattedDiagnostics);
+            System.out.println("OCL validation failed, see errors below");
+            System.out.println(formattedDiagnostics);
             System.exit(1);
         }
     }
