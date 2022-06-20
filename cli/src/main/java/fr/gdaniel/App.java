@@ -14,9 +14,6 @@ import org.eclipse.ocl.pivot.utilities.PivotUtil;
 
 import java.io.File;
 
-/**
- * Hello world!
- */
 public class App {
 
     public static final Option METAMODEL_OPTION = new Option("M", "metamodel", true, "Location of the metamodel "
@@ -27,11 +24,14 @@ public class App {
     public static final Option CONSTRAINTS_OPTION = new Option("c", "constraints", true, "Location of the constraints"
             + " file (required)");
 
+    public static final Option HELP_OPTION = new Option("h", "help", false, "Help");
+
     public static void main(String[] args) throws Exception {
         Options options = new Options();
         options.addOption(METAMODEL_OPTION);
         options.addOption(MODEL_OPTION);
         options.addOption(CONSTRAINTS_OPTION);
+        options.addOption(HELP_OPTION);
         HelpFormatter formatter = new HelpFormatter();
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd;
@@ -39,8 +39,13 @@ public class App {
             cmd = parser.parse(options, args);
         } catch (ParseException e) {
             formatter.printHelp("ocl runner", options);
-            throw new RuntimeException();
+            throw e;
         }
+        if(cmd.hasOption(HELP_OPTION)) {
+            formatter.printHelp("ocl runner", options);
+            System.exit(0);
+        }
+
         File metamodelFile;
         File modelFile;
         File constraintsFile;
