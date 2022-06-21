@@ -76,7 +76,7 @@ public class App {
         }
         OCLRunner oclRunner = new OCLRunner();
 
-        Diagnostic diagnostics = oclRunner.checkConstraints(metamodelFile, modelFile, constraintsFile);
+        Diagnostic diagnostics = oclRunner.validate(metamodelFile, modelFile, constraintsFile);
         if(diagnostics.getSeverity() == Diagnostic.OK) {
             System.out.println("OCL validation succeeded without errors");
             System.exit(0);

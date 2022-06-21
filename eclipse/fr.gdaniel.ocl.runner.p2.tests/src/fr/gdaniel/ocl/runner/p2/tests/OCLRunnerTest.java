@@ -36,30 +36,30 @@ class OCLRunnerTest {
 	}
 
 	@Test
-	public void checkConstraintsNullMetamodelFile() {
-		assertThrows(NullPointerException.class, () -> runner.checkConstraints(null, MODEL_FILE, CONSTRAINTS_FILE));
+	public void validateNullMetamodelFile() {
+		assertThrows(NullPointerException.class, () -> runner.validate(null, MODEL_FILE, CONSTRAINTS_FILE));
 	}
 
 	@Test
-	public void checkConstraintsNullModelFile() {
-		assertThrows(NullPointerException.class, () -> runner.checkConstraints(METAMODEL_FILE, null, CONSTRAINTS_FILE));
+	public void validateNullModelFile() {
+		assertThrows(NullPointerException.class, () -> runner.validate(METAMODEL_FILE, null, CONSTRAINTS_FILE));
 	}
 
 	@Test
-	public void checkConstraintsNullConstraintsFile() {
-		assertThrows(NullPointerException.class, () -> runner.checkConstraints(METAMODEL_FILE, METAMODEL_FILE, null));
+	public void validateNullConstraintsFile() {
+		assertThrows(NullPointerException.class, () -> runner.validate(METAMODEL_FILE, METAMODEL_FILE, null));
 	}
 
 	@Test
-	public void checkConstraintsValidFileViolatedConstraints() {
-		Diagnostic diagnostic = runner.checkConstraints(METAMODEL_FILE, MODEL_FILE, CONSTRAINTS_FILE);
+	public void validateValidFileViolatedConstraints() {
+		Diagnostic diagnostic = runner.validate(METAMODEL_FILE, MODEL_FILE, CONSTRAINTS_FILE);
 		assertEquals(Diagnostic.WARNING, diagnostic.getSeverity());
 	}
 
 	@Test
-	public void checkConstraintsNonXmiModelViolatedConstraints() {
+	public void validateNonXmiModelViolatedConstraints() {
 		File graphFile = new File("resources/model/graph-example.graph");
-		Diagnostic diagnostic = runner.checkConstraints(METAMODEL_FILE, graphFile, CONSTRAINTS_FILE);
+		Diagnostic diagnostic = runner.validate(METAMODEL_FILE, graphFile, CONSTRAINTS_FILE);
 		assertEquals(Diagnostic.WARNING, diagnostic.getSeverity());
 		assertDiagnosticChildrenRefersToGraph(diagnostic);
 	}

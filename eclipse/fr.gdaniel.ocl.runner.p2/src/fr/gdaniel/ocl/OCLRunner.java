@@ -21,7 +21,7 @@ public class OCLRunner {
 		
 	}
 	
-	public Diagnostic checkConstraints(File metamodelFile, File modelFile, File constraintFile) {
+	public Diagnostic validate(File metamodelFile, File modelFile, File constraintFile) {
 		ResourceSet rSet = EMFUtil.createResourceSet();
 		Resource metamodelResource = EMFUtil.loadResource(metamodelFile, rSet);
 		EMFUtil.registerMetamodelPackages(metamodelResource);
