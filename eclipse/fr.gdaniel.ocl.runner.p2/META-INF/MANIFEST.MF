@@ -17,5 +17,4 @@ Require-Bundle: org.eclipse.ocl.pivot;bundle-version="1.17.0";visibility:=reexpo
  org.eclipse.emf.codegen.ecore;bundle-version="2.29.0";visibility:=reexport,
  org.eclipse.ocl.xtext.essentialocl;bundle-version="1.17.0";visibility:=reexport,
  org.eclipse.ocl.xtext.completeocl;bundle-version="1.17.0";visibility:=reexport
-Export-Package: graphtest,
- fr.gdaniel.ocl
+Export-Package: fr.gdaniel.ocl

@@ -1,4 +1,4 @@
-package graphtest;
+package fr.gdaniel.ocl;
 
 import java.io.File;
 import java.util.List;

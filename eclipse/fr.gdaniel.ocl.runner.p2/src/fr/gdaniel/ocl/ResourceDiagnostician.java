@@ -1,4 +1,4 @@
-package graphtest;
+package fr.gdaniel.ocl;
 
 import java.util.Map;
 
@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.pivot.internal.labels.LabelSubstitutionLabelProvider;
 
-public class MyDiagnostician extends Diagnostician {
+public class ResourceDiagnostician extends Diagnostician {
 
 	@Override
 	public Map<Object, Object> createDefaultContext() {

@@ -12,9 +12,6 @@ import org.eclipse.ocl.pivot.validation.ComposedEValidator;
 import org.eclipse.ocl.xtext.completeocl.CompleteOCLStandaloneSetup;
 import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
 
-import graphtest.EMFUtil;
-import graphtest.MyDiagnostician;
-
 public class OCLRunner {
 	
 	public OCLRunner() {
@@ -37,7 +34,7 @@ public class OCLRunner {
 			newEValidator.addChild(new CompleteOCLEObjectValidator(ePackage, constraintUri));
 		}
 		
-		MyDiagnostician diagnostician = new MyDiagnostician();
+		ResourceDiagnostician diagnostician = new ResourceDiagnostician();
 		Diagnostic diagnostics = diagnostician.validate(modelResource);
 		return diagnostics;
 	}
