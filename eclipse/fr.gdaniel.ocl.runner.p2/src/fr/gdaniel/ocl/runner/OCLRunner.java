@@ -14,10 +14,6 @@ import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
 
 public class OCLRunner {
 	
-	public OCLRunner() {
-		
-	}
-	
 	public Diagnostic validate(File metamodelFile, File modelFile, File constraintFile) {
 		ResourceSet rSet = EMFUtil.createResourceSet();
 		Resource metamodelResource = rSet.getResource(URI.createFileURI(metamodelFile.getAbsolutePath()), true);
