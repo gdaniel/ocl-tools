@@ -1,5 +1,6 @@
 package fr.gdaniel.ocl;
 
+import fr.gdaniel.ocl.runner.OCLRunner;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -15,8 +16,8 @@ import java.io.File;
 
 /**
  * Provides a command-line interface to evaluate OCL constraints against models.
- * 
- * @see #main(String[]) for details on the arguments and exit codes 
+ *
+ * @see #main(String[]) for details on the arguments and exit codes
  */
 public class OclCli {
 

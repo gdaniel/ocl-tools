@@ -1,4 +1,4 @@
-package fr.gdaniel.ocl;
+package fr.gdaniel.ocl.runner;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package fr.gdaniel.ocl.runner.p2.tests;
+package fr.gdaniel.ocl.runner.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import fr.gdaniel.ocl.OCLRunner;
+import fr.gdaniel.ocl.runner.OCLRunner;
 
 class OCLRunnerTest {
 
