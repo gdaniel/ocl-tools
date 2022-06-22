@@ -59,7 +59,7 @@
                     </descriptorRefs>
                     <archive>
                       <manifest>
-                        <mainClass>fr.gdaniel.App</mainClass>
+                        <mainClass>fr.gdaniel.ocl.OclCli</mainClass>
                       </manifest>
                     </archive>
                     <finalName>ocl-cli</finalName>
