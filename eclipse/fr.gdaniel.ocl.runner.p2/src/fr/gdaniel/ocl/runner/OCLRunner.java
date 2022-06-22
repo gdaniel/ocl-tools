@@ -20,9 +20,9 @@ public class OCLRunner {
 	
 	public Diagnostic validate(File metamodelFile, File modelFile, File constraintFile) {
 		ResourceSet rSet = EMFUtil.createResourceSet();
-		Resource metamodelResource = EMFUtil.loadResource(metamodelFile, rSet);
+		Resource metamodelResource = rSet.getResource(URI.createFileURI(metamodelFile.getAbsolutePath()), true);
 		EMFUtil.registerMetamodelPackages(metamodelResource);
-		Resource modelResource = EMFUtil.loadResource(modelFile, rSet);
+		Resource modelResource = rSet.getResource(URI.createFileURI(modelFile.getAbsolutePath()), true);
 		CompleteOCLStandaloneSetup.doSetup();
 		
 		OCL ocl = OCL.newInstance(EPackage.Registry.INSTANCE);
