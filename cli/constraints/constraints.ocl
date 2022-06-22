@@ -1,9 +1,0 @@
-import 'http://www.example.org/graph'
-
-package graph
-
-context Node
-inv nodesHasName('The \'name\' property of "' + self.toString() + '" is null or empty'):
-	self.name <> null and self.name.size() > 0
-
-endpackage
